@@ -8,10 +8,10 @@ import CommentDetail from './CommentDetail.js';
 const App = () => {
     let props = [
         {
-
+            
         },
         {
-
+            
         },
         {
             
@@ -24,7 +24,7 @@ const App = () => {
             <CommentDetail />
         </div>
     );
-}
+};
 
 
 // Show comp on screen
