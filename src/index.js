@@ -2,73 +2,27 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import SeasonDisplay from './SeasonDisplay';
-import Spinner from './Spinner'
+import Spinner from './Spinner';
+import useLocation from './useLocation';
 
-//Creating app class
-class App extends React.Component{
-    // constructor(props){
-    //     super(props);
+const App = () => {
+	const [lat, errorMsg] = useLocation();
 
-    //     this.state = {
-    //         lat: null,
-    //         errorMsg: ''
-    //     };}
-    //Alt version
-    state = {
-        lat: null,
-        errorMsg: '',
-    };
+	let content;
+	if (errorMsg) {
+		content = <div>Error: {errorMsg}</div>;
+	} else if (lat) {
+		content = (
+			<div>
+				<SeasonDisplay lat={lat} />
+			</div>
+		);
+	} else {
+		content = <Spinner message='Please accept location request' />;
+	}
 
-    
-    
-    componentDidMount(){
-        console.log('Component mounted successfully');  
-        window.navigator.geolocation.getCurrentPosition(
-            position =>this.setState({lat:position.coords.latitude}),
-            err => this.setState({errorMsg:err})
-        );
-    }
-
-    renderContent(){
-        if (this.state.errorMsg && !this.state.lat)
-        {
-            return(
-                <div>
-                    Error: {this.state.errorMsg}
-                </div>
-            )
-        }
-
-        if (!this.state.errorMsg && this.state.lat)
-        {
-            return (
-                <div>
-                    <SeasonDisplay lat={this.state.lat} />
-                </div>
-                
-              
-            );
-        }
-        
-        return (
-            <div>
-                <Spinner message="Please accept location request"/>
-            </div>
-        );
-    }
-
-    render() {
-
-       return (<div className="border-red">
-       {this.renderContent()}
-       </div>)
-        
-    } 
-}
-
+	return <div className='border-red'>{content}</div>;
+};
 
 //Rendering app
-ReactDOM.render(
-    <App />,
-    document.querySelector('#root')
-);
+ReactDOM.render(<App />, document.querySelector('#root'));
