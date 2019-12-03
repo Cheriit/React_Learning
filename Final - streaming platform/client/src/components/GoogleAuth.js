@@ -7,8 +7,7 @@ class GoogleAuth extends React.Component {
 		window.gapi.load('client:auth2', () => {
 			window.gapi.client
 				.init({
-					clientId:
-						'124385328714-ob2tk98ui4a467k9qmbak6ufq059vbuk.apps.googleusercontent.com',
+					clientId: 'KEY.apps.googleusercontent.com',
 					scope: 'email'
 				})
 				.then(() => {
@@ -75,7 +74,4 @@ const mapDispatchToProps = {
 	signOut
 };
 
-export default connect(
-	mapStateToProps,
-	mapDispatchToProps
-)(GoogleAuth);
+export default connect(mapStateToProps, mapDispatchToProps)(GoogleAuth);
