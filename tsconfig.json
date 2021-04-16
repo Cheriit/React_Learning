@@ -1,12 +1,8 @@
 {
   "compilerOptions": {
-    "target": "es5",
-    "lib": [
-      "dom",
-      "dom.iterable",
-      "esnext"
-    ],
-    "allowJs": true,
+    "target": "ES2015",
+    "lib": ["dom", "dom.iterable", "esnext"],
+    "allowJs": false,
     "skipLibCheck": true,
     "esModuleInterop": true,
     "allowSyntheticDefaultImports": true,
@@ -20,7 +16,7 @@
     "noEmit": true,
     "jsx": "react"
   },
-  "include": [
-    "src"
-  ]
+  "$schema": "https://json.schemastore.org/tsconfig",
+  "include": ["src/**/*"],
+  "exclude": ["node_modules"]
 }

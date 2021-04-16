@@ -12,7 +12,7 @@ import {
 import { ColorModeSwitcher } from './ColorModeSwitcher';
 import { Logo } from './Logo';
 
-export const App = () => (
+export const App: React.FC = () => (
   <ChakraProvider theme={theme}>
     <Box textAlign="center" fontSize="xl">
       <Grid minH="100vh" p={3}>
