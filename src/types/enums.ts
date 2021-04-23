@@ -1,7 +1,6 @@
 enum SortedItemFields {
   id,
   name,
-  imageUrl,
   ranking,
 }
 

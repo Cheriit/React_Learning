@@ -6,10 +6,20 @@ import PropTypes from 'prop-types';
 import { listReducer } from '../reducers/listReducer';
 
 const initialState: ListContextType = {
-  items: [],
+  items: [
+    {
+      id: 1,
+      name: 'test',
+      description: 'Lorem ',
+      imageUrl:
+        'https://pngimg.com/uploads/pokeball/pokeball_PNG8.png',
+      ranking: 3,
+    },
+  ],
   sortedBy: SortedItemFields.id,
   sortingDirection: SortingDirections.ascending,
   searchValue: null,
+  isModalOpen: false,
 };
 
 const ListContext = createContext<{

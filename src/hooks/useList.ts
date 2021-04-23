@@ -20,11 +20,7 @@ const useList = (): ReducerHook<ListContextType, ListAction> => {
       dispatch({ type: ListActionType.TEST, payload: { id: 2 } }),
   };
 
-  return {
-    state,
-    dispatch,
-    events,
-  };
+  return [state, dispatch, events];
 };
 
 export default useList;

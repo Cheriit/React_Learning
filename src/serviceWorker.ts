@@ -24,7 +24,7 @@ type Config = {
   onSuccess?: (registration: ServiceWorkerRegistration) => void;
   onUpdate?: (registration: ServiceWorkerRegistration) => void;
 };
-
+// eslint-disable-next-line
 export function register(config?: Config) {
   if (
     process.env.NODE_ENV === 'production' &&
@@ -143,6 +143,7 @@ function checkValidServiceWorker(swUrl: string, config?: Config) {
     });
 }
 
+// eslint-disable-next-line
 export function unregister() {
   if ('serviceWorker' in navigator) {
     navigator.serviceWorker.ready

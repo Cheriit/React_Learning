@@ -1,4 +1,14 @@
-type ActionMap<M extends { [index: string]: any }> = {
+import { SortedItemFields } from './enums';
+
+enum ListActionType {
+  ADD = 'ADD',
+  REMOVE = 'REMOVE',
+  EDIT = 'EDIT',
+  SORT = 'SORT',
+  SEARCH = 'SEARCH',
+}
+
+type ActionMap<M extends { [index: string]: unknown }> = {
   [Key in keyof M]: M[Key] extends undefined
     ? {
         type: Key;
@@ -9,17 +19,28 @@ type ActionMap<M extends { [index: string]: any }> = {
       };
 };
 
-enum ListActionType {
-  TEST = 'TEST',
-  TEST2 = 'TEST2',
-}
-
 type ListPayload = {
-  [ListActionType.TEST]: {
+  [ListActionType.ADD]: {
+    name: string;
+    description: string;
+    imageUrl: string;
+    ranking: number;
+  };
+  [ListActionType.REMOVE]: {
     id: number;
   };
-  [ListActionType.TEST2]: {
-    content: string;
+  [ListActionType.EDIT]: {
+    id: number;
+    name: string;
+    description: string;
+    imageUrl: string;
+    ranking: number;
+  };
+  [ListActionType.SORT]: {
+    field: SortedItemFields;
+  };
+  [ListActionType.SEARCH]: {
+    name: string;
   };
 };
 

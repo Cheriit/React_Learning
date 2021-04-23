@@ -1,9 +1,9 @@
 import React from 'react';
 
-type ReducerHook<State, Type> = {
-  state: State;
-  dispatch: React.Dispatch<Type>;
-  events: unknown;
-};
+type ReducerHook<State, Type> = [
+  State,
+  React.Dispatch<Type>,
+  unknown,
+];
 
 export type { ReducerHook };
