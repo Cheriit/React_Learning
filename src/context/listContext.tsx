@@ -19,7 +19,6 @@ const initialState: ListContextType = {
   sortedBy: SortedItemFields.id,
   sortingDirection: SortingDirections.ascending,
   searchValue: null,
-  isModalOpen: false,
 };
 
 const ListContext = createContext<{

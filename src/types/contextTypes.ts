@@ -1,3 +1,4 @@
+import { ReactElement } from 'react';
 import { SortedItemFields, SortingDirections } from './enums';
 
 type ListItem = {
@@ -13,7 +14,12 @@ type ListContextType = {
   sortedBy: SortedItemFields;
   sortingDirection: SortingDirections;
   searchValue: string | null;
-  isModalOpen: boolean;
 };
 
-export type { ListItem, ListContextType };
+type ModalContextType = {
+  title?: string;
+  content?: ReactElement;
+  isOpen: boolean;
+};
+
+export type { ListItem, ListContextType, ModalContextType };

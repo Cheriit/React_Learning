@@ -6,4 +6,6 @@ type ReducerHook<State, Type> = [
   unknown,
 ];
 
-export type { ReducerHook };
+type ContextHook<Context> = [Context, React.Dispatch<Context>];
+
+export type { ReducerHook, ContextHook };

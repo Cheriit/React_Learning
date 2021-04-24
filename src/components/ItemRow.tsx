@@ -46,7 +46,7 @@ ItemRow.propTypes = {
     description: PropTypes.string.isRequired,
     imageUrl: PropTypes.string.isRequired,
     ranking: PropTypes.number.isRequired,
-  }),
+  }).isRequired,
   onEdit: PropTypes.func.isRequired,
   onDelete: PropTypes.func.isRequired,
   onInfo: PropTypes.func.isRequired,

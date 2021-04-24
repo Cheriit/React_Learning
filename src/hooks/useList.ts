@@ -17,7 +17,7 @@ const useList = (): ReducerHook<ListContextType, ListAction> => {
 
   const events = {
     addElement: () =>
-      dispatch({ type: ListActionType.TEST, payload: { id: 2 } }),
+      dispatch({ type: ListActionType.ADD, payload: { id: 2 } }),
   };
 
   return [state, dispatch, events];
