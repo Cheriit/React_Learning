@@ -6,12 +6,11 @@ import {
   Input,
 } from '@chakra-ui/react';
 import PropTypes from 'prop-types';
-import { UseFormRegister } from 'react-hook-form';
 
 type TextInputFieldProps = {
   label: string;
   placeholder?: string;
-  register: UseFormRegister;
+  register: unknown;
   error?: string;
   p?: number;
   isRequired?: boolean;

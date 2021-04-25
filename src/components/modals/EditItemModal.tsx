@@ -2,7 +2,7 @@ import React from 'react';
 import { Button, ModalBody, ModalFooter } from '@chakra-ui/react';
 import { useList, useModal } from 'hooks';
 import { useForm } from 'react-hook-form';
-import { ListActionType, ListItem } from 'types';
+import { ItemFormInputs, ListActionType, ListItem } from 'types';
 import { yupResolver } from '@hookform/resolvers/yup';
 import {
   TextInputField,
@@ -11,13 +11,6 @@ import {
 } from 'components/forms/inputs';
 import { ItemSchema } from 'schemas';
 import PropTypes from 'prop-types';
-
-type ItemFormInputs = {
-  name: string;
-  imageUrl: string;
-  ranking: number;
-  description: string;
-};
 
 type EditItemModalProps = {
   item: ListItem;

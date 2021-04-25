@@ -10,12 +10,11 @@ import {
   NumberInputStepper,
 } from '@chakra-ui/react';
 import PropTypes from 'prop-types';
-import { UseFormRegister } from 'react-hook-form';
 
 type NumberInputFieldProps = {
   label: string;
   placeholder?: string;
-  register: UseFormRegister;
+  register: unknown;
   error?: string;
   p?: number;
   isRequired?: boolean;
