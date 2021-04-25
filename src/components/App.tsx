@@ -1,30 +1,26 @@
 'use strict';
 import * as React from 'react';
-import {
-  ChakraProvider,
-  Box,
-  VStack,
-  Grid,
-  theme,
-} from '@chakra-ui/react';
+import { ChakraProvider, Box, Grid, theme } from '@chakra-ui/react';
 import { ColorModeSwitcher } from './ColorModeSwitcher';
 import { ListProvider } from '../context/listContext';
 import { ModalProvider } from '../context/modalContext';
-import { ItemTable } from './ItemTable';
+import { ItemTable } from './table/ItemTable';
 import { ModalContainer } from './modals/Modal';
+import { SearchTable } from './table/SearchTable';
 
 export const App: React.FC = () => (
   <ListProvider>
     <ModalProvider>
       <ChakraProvider theme={theme}>
-        <Box textAlign="center" fontSize="xl">
-          <Grid minH="100vh" p={3}>
+        <Grid p={3}>
+          <Box textAlign="right" fontSize="xl" mb={3}>
             <ColorModeSwitcher justifySelf="flex-end" />
-            <VStack spacing={1}>
-              <ItemTable />
-            </VStack>
-          </Grid>
-        </Box>
+          </Box>
+          <Box textAlign="center" fontSize="xl">
+            <SearchTable />
+            <ItemTable />
+          </Box>
+        </Grid>
         <ModalContainer onSave={() => null} />
       </ChakraProvider>
     </ModalProvider>

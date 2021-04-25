@@ -5,18 +5,21 @@ import {
   ModalContent,
   ModalHeader,
   ModalCloseButton,
-  useDisclosure,
 } from '@chakra-ui/react';
 import useModal from '../../hooks/useModal';
 
 type ModalContainerProps = {
   onSave: () => void;
 };
+
 export const ModalContainer: React.FC<ModalContainerProps> = () => {
-  const [context] = useModal();
-  const { onClose } = useDisclosure();
+  const [context, setContext] = useModal();
+
   return (
-    <Modal isOpen={context.isOpen} onClose={onClose}>
+    <Modal
+      isOpen={context.isOpen}
+      onClose={() => setContext({ isOpen: false })}
+    >
       <ModalOverlay />
       <ModalContent>
         <ModalHeader>{context.title}</ModalHeader>

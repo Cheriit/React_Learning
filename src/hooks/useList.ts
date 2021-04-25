@@ -1,5 +1,5 @@
 import { useContext } from 'react';
-import { ListAction, ListActionType } from '../types/actionTypes';
+import { ListAction } from '../types/actionTypes';
 import { ListContextType } from '../types/contextTypes';
 import { ReducerHook } from '../types/hookTypes';
 import { ListContext } from '../context/listContext';
@@ -15,12 +15,7 @@ const useList = (): ReducerHook<ListContextType, ListAction> => {
 
   const { state, dispatch } = context;
 
-  const events = {
-    addElement: () =>
-      dispatch({ type: ListActionType.ADD, payload: { id: 2 } }),
-  };
-
-  return [state, dispatch, events];
+  return [state, dispatch];
 };
 
 export default useList;

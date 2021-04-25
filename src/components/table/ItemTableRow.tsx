@@ -1,18 +1,17 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { Tr, Td, Button, Avatar } from '@chakra-ui/react';
-import { EditIcon, DeleteIcon, InfoIcon } from '@chakra-ui/icons';
-import { ListItem } from '../types/contextTypes';
+import { EditIcon, DeleteIcon } from '@chakra-ui/icons';
+import { ListItem } from '../../types/contextTypes';
 
 type ItemRowProps = {
   item: ListItem;
   onEdit: (id: number) => void;
   onDelete: (id: number) => void;
-  onInfo: (id: number) => void;
 };
 
-export const ItemRow: React.FC<ItemRowProps> = (props) => {
-  const { item, onEdit, onDelete, onInfo } = props;
+export const ItemTableRow: React.FC<ItemRowProps> = (props) => {
+  const { item, onEdit, onDelete } = props;
   return (
     <Tr>
       <Td>
@@ -21,25 +20,21 @@ export const ItemRow: React.FC<ItemRowProps> = (props) => {
       <Td>{item.name}</Td>
       <Td isNumeric>{item.ranking}</Td>
       <Td>{item.description}</Td>
-      <Td>
+      <Td isNumeric>
         <Button onClick={() => onEdit(item.id)} mr={3}>
-          <EditIcon />
+          <EditIcon mr={1} />
           Edit
         </Button>
         <Button onClick={() => onDelete(item.id)} mr={3}>
-          <DeleteIcon />
+          <DeleteIcon mr={1} />
           Delete
-        </Button>
-        <Button onClick={() => onInfo(item.id)}>
-          <InfoIcon />
-          Info
         </Button>
       </Td>
     </Tr>
   );
 };
 
-ItemRow.propTypes = {
+ItemTableRow.propTypes = {
   item: PropTypes.exact({
     id: PropTypes.number.isRequired,
     name: PropTypes.string.isRequired,
@@ -49,5 +44,4 @@ ItemRow.propTypes = {
   }).isRequired,
   onEdit: PropTypes.func.isRequired,
   onDelete: PropTypes.func.isRequired,
-  onInfo: PropTypes.func.isRequired,
 };

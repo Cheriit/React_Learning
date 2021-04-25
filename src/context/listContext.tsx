@@ -18,7 +18,7 @@ const initialState: ListContextType = {
   ],
   sortedBy: SortedItemFields.id,
   sortingDirection: SortingDirections.ascending,
-  searchValue: null,
+  searchValue: '',
 };
 
 const ListContext = createContext<{

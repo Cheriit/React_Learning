@@ -13,7 +13,7 @@ type ListContextType = {
   items: ListItem[];
   sortedBy: SortedItemFields;
   sortingDirection: SortingDirections;
-  searchValue: string | null;
+  searchValue: string;
 };
 
 type ModalContextType = {

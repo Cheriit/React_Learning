@@ -2,7 +2,7 @@ import _ from 'lodash';
 import { initialState } from '../context/listContext';
 import { ListAction, ListActionType } from '../types/actionTypes';
 import { ListContextType } from '../types/contextTypes';
-import { SortingDirections } from '../types/enums';
+import { getSortingDirection } from '../utils/listUtils';
 
 const listReducer: React.Reducer<ListContextType, ListAction> = (
   state: ListContextType = initialState,
@@ -42,10 +42,11 @@ const listReducer: React.Reducer<ListContextType, ListAction> = (
       return {
         ...state,
         sortedBy: action.payload.field,
-        sortingDirection:
-          state.sortedBy === action.payload.field
-            ? SortingDirections.ascending
-            : SortingDirections.descending,
+        sortingDirection: getSortingDirection(
+          state.sortedBy,
+          action.payload.field,
+          state.sortingDirection,
+        ),
       };
     case ListActionType.SEARCH:
       return {

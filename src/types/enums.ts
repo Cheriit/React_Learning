@@ -5,8 +5,8 @@ enum SortedItemFields {
 }
 
 enum SortingDirections {
-  ascending,
-  descending,
+  ascending = 0,
+  descending = 1,
 }
 
 export { SortedItemFields, SortingDirections };
