@@ -2,7 +2,7 @@ import React from 'react';
 import { Button, ModalBody, ModalFooter } from '@chakra-ui/react';
 import { useList, useModal } from 'hooks';
 import { useForm } from 'react-hook-form';
-import { ListActionType } from 'types';
+import { ListActionType, ListItem } from 'types';
 import { yupResolver } from '@hookform/resolvers/yup';
 import {
   TextInputField,
@@ -10,6 +10,7 @@ import {
   TextareaField,
 } from 'components/forms/inputs';
 import { ItemSchema } from 'schemas';
+import PropTypes from 'prop-types';
 
 type ItemFormInputs = {
   name: string;
@@ -18,7 +19,13 @@ type ItemFormInputs = {
   description: string;
 };
 
-export const NewItemModal: React.FC = () => {
+type EditItemModalProps = {
+  item: ListItem;
+};
+
+export const EditItemModal: React.FC<EditItemModalProps> = ({
+  item,
+}) => {
   const {
     handleSubmit,
     register,
@@ -32,7 +39,10 @@ export const NewItemModal: React.FC = () => {
   const [, dispatch] = useList();
 
   const onSubmit = (data: ItemFormInputs) => {
-    dispatch({ type: ListActionType.ADD, payload: { ...data } });
+    dispatch({
+      type: ListActionType.EDIT,
+      payload: { id: item.id, ...data },
+    });
     setContext({ isOpen: false });
   };
 
@@ -47,6 +57,7 @@ export const NewItemModal: React.FC = () => {
           register={register('name')}
           error={errors?.name?.message}
           isRequired={true}
+          defaultValue={item.name}
         />
 
         <TextInputField
@@ -55,16 +66,17 @@ export const NewItemModal: React.FC = () => {
           register={register('imageUrl')}
           error={errors?.imageUrl?.message}
           isRequired={true}
+          defaultValue={item.imageUrl}
         />
 
         <NumberInputField
           label="Ranking"
-          defaultValue={1}
           min={1}
           max={10}
           register={register('ranking')}
           error={errors?.ranking?.message}
           isRequired={true}
+          defaultValue={item.ranking}
         />
 
         <TextareaField
@@ -73,6 +85,7 @@ export const NewItemModal: React.FC = () => {
           register={register('description')}
           error={errors?.description?.message}
           isRequired={true}
+          defaultValue={item.description}
         />
       </ModalBody>
 
@@ -89,7 +102,7 @@ export const NewItemModal: React.FC = () => {
             !!errors.ranking
           }
         >
-          Add
+          Save
         </Button>
 
         <Button
@@ -104,4 +117,14 @@ export const NewItemModal: React.FC = () => {
       </ModalFooter>
     </form>
   );
+};
+
+EditItemModal.propTypes = {
+  item: PropTypes.exact({
+    id: PropTypes.number.isRequired,
+    name: PropTypes.string.isRequired,
+    description: PropTypes.string.isRequired,
+    imageUrl: PropTypes.string.isRequired,
+    ranking: PropTypes.number.isRequired,
+  }).isRequired,
 };

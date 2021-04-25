@@ -2,7 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { Tr, Td, Button, Avatar } from '@chakra-ui/react';
 import { EditIcon, DeleteIcon } from '@chakra-ui/icons';
-import { ListItem } from '../../types/contextTypes';
+import { ListItem } from 'types';
 
 type ItemRowProps = {
   item: ListItem;

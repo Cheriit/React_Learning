@@ -1,10 +1,11 @@
 import { useContext } from 'react';
-import { ListAction } from '../types/actionTypes';
-import { ListContextType } from '../types/contextTypes';
-import { ReducerHook } from '../types/hookTypes';
-import { ListContext } from '../context/listContext';
+import { ListAction, ListContextType, ReducerHook } from 'types';
+import { ListContext } from 'context';
 
-const useList = (): ReducerHook<ListContextType, ListAction> => {
+export const useList = (): ReducerHook<
+  ListContextType,
+  ListAction
+> => {
   const context = useContext(ListContext);
 
   if (!context) {
@@ -17,5 +18,3 @@ const useList = (): ReducerHook<ListContextType, ListAction> => {
 
   return [state, dispatch];
 };
-
-export default useList;

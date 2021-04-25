@@ -1,9 +1,12 @@
 import React, { createContext, useReducer, useMemo } from 'react';
-import { ListContextType } from '../types/contextTypes';
-import { SortedItemFields, SortingDirections } from '../types/enums';
-import { ListAction } from '../types/actionTypes';
+import {
+  ListContextType,
+  SortedItemFields,
+  SortingDirections,
+  ListAction,
+} from 'types';
 import PropTypes from 'prop-types';
-import { listReducer } from '../reducers/listReducer';
+import { listReducer } from 'reducers';
 
 const initialState: ListContextType = {
   items: [

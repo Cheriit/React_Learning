@@ -6,7 +6,7 @@ import {
   ModalHeader,
   ModalCloseButton,
 } from '@chakra-ui/react';
-import useModal from '../../hooks/useModal';
+import { useModal } from 'hooks';
 
 type ModalContainerProps = {
   onSave: () => void;

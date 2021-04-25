@@ -7,10 +7,9 @@ import {
   InputLeftElement,
   InputRightElement,
 } from '@chakra-ui/react';
-import useList from '../../hooks/useList';
-import { ListActionType } from '../../types/actionTypes';
-import useModal from '../../hooks/useModal';
-import { NewItemModal } from '../modals/NewItemModal';
+import { useList, useModal } from 'hooks';
+import { ListActionType } from 'types';
+import { NewItemModal } from 'components/modals';
 
 export const SearchTable: React.FC = () => {
   const [{ searchValue }, dispatch] = useList();

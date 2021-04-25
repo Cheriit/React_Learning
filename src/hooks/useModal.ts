@@ -1,9 +1,8 @@
 import { useContext } from 'react';
-import { ModalContextType } from '../types/contextTypes';
-import { ContextHook } from '../types/hookTypes';
-import { ModalContext } from '../context/modalContext';
+import { ModalContextType, ContextHook } from 'types';
+import { ModalContext } from 'context';
 
-const useModal = (): ContextHook<ModalContextType> => {
+export const useModal = (): ContextHook<ModalContextType> => {
   const context = useContext(ModalContext);
 
   if (!context) {
@@ -14,5 +13,3 @@ const useModal = (): ContextHook<ModalContextType> => {
 
   return context;
 };
-
-export default useModal;

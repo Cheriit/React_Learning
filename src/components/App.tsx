@@ -1,12 +1,10 @@
 'use strict';
 import * as React from 'react';
 import { ChakraProvider, Box, Grid, theme } from '@chakra-ui/react';
-import { ColorModeSwitcher } from './ColorModeSwitcher';
-import { ListProvider } from '../context/listContext';
-import { ModalProvider } from '../context/modalContext';
-import { ItemTable } from './table/ItemTable';
-import { ModalContainer } from './modals/Modal';
-import { SearchTable } from './table/SearchTable';
+import { ColorModeSwitcher } from 'components/ColorModeSwitcher';
+import { ListProvider, ModalProvider } from 'context';
+import { ModalContainer } from 'components/modals';
+import { SearchTable, ItemTable } from 'components/table';
 
 export const App: React.FC = () => (
   <ListProvider>

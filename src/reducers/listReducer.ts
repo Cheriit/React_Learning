@@ -1,8 +1,7 @@
 import _ from 'lodash';
-import { initialState } from '../context/listContext';
-import { ListAction, ListActionType } from '../types/actionTypes';
-import { ListContextType } from '../types/contextTypes';
-import { getSortingDirection } from '../utils/listUtils';
+import { initialState } from 'context';
+import { ListAction, ListActionType, ListContextType } from 'types';
+import { getSortingDirection } from 'utils';
 
 const listReducer: React.Reducer<ListContextType, ListAction> = (
   state: ListContextType = initialState,

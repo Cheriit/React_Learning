@@ -1,15 +1,11 @@
 import * as React from 'react';
 import { Table, Tbody, Tr, Th, Thead } from '@chakra-ui/react';
-import useList from '../../hooks/useList';
-import { ItemTableRow } from './ItemTableRow';
-import useModal from '../../hooks/useModal';
-import { SortedItemFields } from '../../types/enums';
-import { sortList } from '../../utils/listUtils';
-import { EditModal } from '../modals/EditModal';
-import { DeleteModal } from '../modals/DeleteModal';
-import { ListActionType } from '../../types/actionTypes';
-import { SortableColumnHeader } from './SortableColumnHeader';
-import { ListItem } from '../../types/contextTypes';
+import { SortedItemFields, ListActionType, ListItem } from 'types';
+import { EditItemModal, DeleteModal } from 'components/modals';
+
+import { sortList } from 'utils';
+import { ItemTableRow, SortableColumnHeader } from '.';
+import { useList, useModal } from 'hooks';
 
 export const ItemTable: React.FC = () => {
   const [
@@ -22,7 +18,7 @@ export const ItemTable: React.FC = () => {
     setModalContext({
       isOpen: true,
       title: `${item.name} - edit`,
-      content: <EditModal item={item} />,
+      content: <EditItemModal item={item} />,
     });
 
   const openDeleteModal = (item: ListItem) =>

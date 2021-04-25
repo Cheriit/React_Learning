@@ -1,5 +1,4 @@
-import { ListActionType, ListAction } from '../types/actionTypes';
-import { SortedItemFields } from '../types/enums';
+import { ListActionType, ListAction, SortedItemFields } from 'types';
 
 export const addItem = (
   name: string,

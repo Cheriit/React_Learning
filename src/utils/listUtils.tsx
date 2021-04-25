@@ -1,6 +1,5 @@
 import _ from 'lodash';
-import { ListItem } from '../types/contextTypes';
-import { SortedItemFields, SortingDirections } from '../types/enums';
+import { ListItem, SortedItemFields, SortingDirections } from 'types';
 
 export const getSortingDirection = (
   currentField: SortedItemFields,

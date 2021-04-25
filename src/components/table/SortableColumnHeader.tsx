@@ -2,10 +2,7 @@ import { ChevronDownIcon, ChevronUpIcon } from '@chakra-ui/icons';
 import { Th } from '@chakra-ui/react';
 import PropTypes from 'prop-types';
 import React from 'react';
-import {
-  SortedItemFields,
-  SortingDirections,
-} from '../../types/enums';
+import { SortedItemFields, SortingDirections } from 'types';
 
 type SortableColumnHeaderProps = {
   name: string;

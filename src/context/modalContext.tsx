@@ -1,5 +1,5 @@
 import React, { createContext, useState } from 'react';
-import { ModalContextType } from '../types/contextTypes';
+import { ModalContextType } from 'types';
 import PropTypes from 'prop-types';
 
 const initialState: ModalContextType = {

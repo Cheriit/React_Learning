@@ -28,6 +28,7 @@
   "rules": {
     "prettier/prettier": ["error"],
     "no-use-before-define": "off",
-    "no-case-declarations": "off"
+    "no-case-declarations": "off",
+    "import/named": "off"
   }
 }

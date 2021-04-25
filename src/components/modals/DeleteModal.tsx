@@ -1,10 +1,8 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { Button, ModalBody, ModalFooter } from '@chakra-ui/react';
-import useModal from '../../hooks/useModal';
-import useList from '../../hooks/useList';
-import { ListItem } from '../../types/contextTypes';
-import { ListActionType } from '../../types/actionTypes';
+import { useModal, useList } from 'hooks';
+import { ListItem, ListActionType } from 'types';
 
 type DeleteModalProps = {
   item: ListItem;
