@@ -50,7 +50,7 @@ const listReducer: React.Reducer<ListContextType, ListAction> = (
     case ListActionType.SEARCH:
       return {
         ...state,
-        searchValue: action.payload.name,
+        searchValue: action.payload.name.toLowerCase(),
       };
     default:
       throw new Error(`Unsupported action type: ${action.type}`);

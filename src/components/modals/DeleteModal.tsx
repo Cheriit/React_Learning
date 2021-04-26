@@ -2,7 +2,8 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { Button, ModalBody, ModalFooter } from '@chakra-ui/react';
 import { useModal, useList } from 'hooks';
-import { ListItem, ListActionType } from 'types';
+import { ListItem } from 'types';
+import { removeItem } from 'actions';
 
 type DeleteModalProps = {
   item: ListItem;
@@ -15,7 +16,7 @@ export const DeleteModal: React.FC<DeleteModalProps> = ({ item }) => {
     <>
       <ModalBody>
         Are you sure, you want to delete item &quot;{item?.name}&quot;
-        from list?;
+        from list?
       </ModalBody>
 
       <ModalFooter>
@@ -23,10 +24,7 @@ export const DeleteModal: React.FC<DeleteModalProps> = ({ item }) => {
           colorScheme="red"
           mr={3}
           onClick={() => {
-            dispatch({
-              type: ListActionType.REMOVE,
-              payload: { id: item.id },
-            });
+            dispatch(removeItem(item.id));
             setContext({ isOpen: false });
           }}
         >

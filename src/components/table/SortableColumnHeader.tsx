@@ -1,5 +1,5 @@
 import { ChevronDownIcon, ChevronUpIcon } from '@chakra-ui/icons';
-import { Th } from '@chakra-ui/react';
+import { HStack, Th, Text } from '@chakra-ui/react';
 import PropTypes from 'prop-types';
 import React from 'react';
 import { SortedItemFields, SortingDirections } from 'types';
@@ -20,16 +20,18 @@ export const SortableColumnHeader: React.FC<SortableColumnHeaderProps> = ({
 }) => {
   return (
     <Th onClick={() => onClick(field)} cursor="pointer">
-      {name}{' '}
-      {sortedBy === field ? (
-        sortingDirection === SortingDirections.ascending ? (
-          <ChevronUpIcon w={6} h={6} />
+      <HStack>
+        <Text> {name} </Text>
+        {sortedBy === field ? (
+          sortingDirection === SortingDirections.ascending ? (
+            <ChevronUpIcon w={6} h={6} />
+          ) : (
+            <ChevronDownIcon w={6} h={6} />
+          )
         ) : (
-          <ChevronDownIcon w={6} h={6} />
-        )
-      ) : (
-        ''
-      )}
+          <></>
+        )}
+      </HStack>
     </Th>
   );
 };

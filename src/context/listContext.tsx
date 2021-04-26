@@ -7,18 +7,10 @@ import {
 } from 'types';
 import PropTypes from 'prop-types';
 import { listReducer } from 'reducers';
+import list from 'context/list.json';
 
 const initialState: ListContextType = {
-  items: [
-    {
-      id: 1,
-      name: 'test',
-      description: 'Lorem ',
-      imageUrl:
-        'https://pngimg.com/uploads/pokeball/pokeball_PNG8.png',
-      ranking: 3,
-    },
-  ],
+  items: list,
   sortedBy: SortedItemFields.id,
   sortingDirection: SortingDirections.ascending,
   searchValue: '',

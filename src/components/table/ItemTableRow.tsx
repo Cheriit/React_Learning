@@ -1,6 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { Tr, Td, Button, Avatar } from '@chakra-ui/react';
+import { Tr, Td, Button, Avatar, HStack } from '@chakra-ui/react';
 import { EditIcon, DeleteIcon } from '@chakra-ui/icons';
 import { ListItem } from 'types';
 
@@ -19,16 +19,18 @@ export const ItemTableRow: React.FC<ItemRowProps> = (props) => {
       </Td>
       <Td>{item.name}</Td>
       <Td isNumeric>{item.ranking}</Td>
-      <Td>{item.description}</Td>
+      <Td fontSize={'md'}>{item.description}</Td>
       <Td isNumeric>
-        <Button onClick={() => onEdit(item.id)} mr={3}>
-          <EditIcon mr={1} />
-          Edit
-        </Button>
-        <Button onClick={() => onDelete(item.id)} mr={3}>
-          <DeleteIcon mr={1} />
-          Delete
-        </Button>
+        <HStack spacing="10px">
+          <Button onClick={() => onEdit(item.id)}>
+            <EditIcon mr={1} />
+            Edit
+          </Button>
+          <Button onClick={() => onDelete(item.id)}>
+            <DeleteIcon mr={1} />
+            Delete
+          </Button>
+        </HStack>
       </Td>
     </Tr>
   );

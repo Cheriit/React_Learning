@@ -1,0 +1,16 @@
+[
+  {
+    "id": 1,
+    "name": "pokeball",
+    "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus pulvinar libero quis lorem tincidunt varius. Sed elementum rutrum nunc, eget suscipit leo aliquet at. Aenean semper in dolor id pellentesque.",
+    "imageUrl": "https://pngimg.com/uploads/pokeball/pokeball_PNG8.png",
+    "ranking": 3
+  },
+  {
+    "id": 2,
+    "name": "Pyrkon",
+    "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus pulvinar libero quis lorem tincidunt varius. Sed elementum rutrum nunc, eget suscipit leo aliquet at. Aenean semper in dolor id pellentesque.",
+    "imageUrl": "https://pbs.twimg.com/profile_images/968616222442053635/0XE6rlzV_400x400.jpg",
+    "ranking": 10
+  }
+]

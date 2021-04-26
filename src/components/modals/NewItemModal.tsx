@@ -2,7 +2,7 @@ import React from 'react';
 import { Button, ModalBody, ModalFooter } from '@chakra-ui/react';
 import { useList, useModal } from 'hooks';
 import { useForm } from 'react-hook-form';
-import { ItemFormInputs, ListActionType } from 'types';
+import { ItemFormInputs } from 'types';
 import { yupResolver } from '@hookform/resolvers/yup';
 import {
   TextInputField,
@@ -10,6 +10,7 @@ import {
   TextareaField,
 } from 'components/forms/inputs';
 import { ItemSchema } from 'schemas';
+import { addItem } from 'actions';
 
 export const NewItemModal: React.FC = () => {
   const {
@@ -24,8 +25,13 @@ export const NewItemModal: React.FC = () => {
   const [, setContext] = useModal();
   const [, dispatch] = useList();
 
-  const onSubmit = (data: ItemFormInputs) => {
-    dispatch({ type: ListActionType.ADD, payload: { ...data } });
+  const onSubmit = ({
+    name,
+    description,
+    imageUrl,
+    ranking,
+  }: ItemFormInputs) => {
+    dispatch(addItem(name, description, imageUrl, ranking));
     setContext({ isOpen: false });
   };
 

@@ -8,17 +8,14 @@ import {
   InputRightElement,
 } from '@chakra-ui/react';
 import { useList, useModal } from 'hooks';
-import { ListActionType } from 'types';
 import { NewItemModal } from 'components/modals';
+import { searchItems } from 'actions';
 
 export const SearchTable: React.FC = () => {
   const [{ searchValue }, dispatch] = useList();
   const [, setModal] = useModal();
   const handleChange = (event: React.FormEvent<HTMLInputElement>) => {
-    dispatch({
-      type: ListActionType.SEARCH,
-      payload: { name: event.currentTarget.value },
-    });
+    dispatch(searchItems(event.currentTarget.value));
   };
   return (
     <InputGroup>

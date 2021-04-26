@@ -2,7 +2,7 @@ import React from 'react';
 import { Button, ModalBody, ModalFooter } from '@chakra-ui/react';
 import { useList, useModal } from 'hooks';
 import { useForm } from 'react-hook-form';
-import { ItemFormInputs, ListActionType, ListItem } from 'types';
+import { ItemFormInputs, ListItem } from 'types';
 import { yupResolver } from '@hookform/resolvers/yup';
 import {
   TextInputField,
@@ -11,6 +11,7 @@ import {
 } from 'components/forms/inputs';
 import { ItemSchema } from 'schemas';
 import PropTypes from 'prop-types';
+import { editItem } from 'actions';
 
 type EditItemModalProps = {
   item: ListItem;
@@ -31,11 +32,13 @@ export const EditItemModal: React.FC<EditItemModalProps> = ({
   const [, setContext] = useModal();
   const [, dispatch] = useList();
 
-  const onSubmit = (data: ItemFormInputs) => {
-    dispatch({
-      type: ListActionType.EDIT,
-      payload: { id: item.id, ...data },
-    });
+  const onSubmit = ({
+    name,
+    description,
+    imageUrl,
+    ranking,
+  }: ItemFormInputs) => {
+    dispatch(editItem(item.id, name, description, imageUrl, ranking));
     setContext({ isOpen: false });
   };
 
